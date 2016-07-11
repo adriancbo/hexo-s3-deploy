@@ -17,7 +17,7 @@ var s3Options = {
 if (!(s3Options.key && s3Options.secret)) {
   var config
   try {
-    config = require('./keys.json')
+    config = require('../../keys.json')
   } catch (e) {
     console.warn(
       'You must provide the AWS keys as either env vars or in keys.json.'
@@ -26,7 +26,7 @@ if (!(s3Options.key && s3Options.secret)) {
   }
   s3Options.key = config.key
   s3Options.secret = config.secret
-  s3Options.secret = config.keys
+  s3Options.bucket = config.bucket
 }
 
 getGitBranch()
